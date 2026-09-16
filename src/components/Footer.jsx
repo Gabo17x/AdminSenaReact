@@ -12,7 +12,7 @@ function Footer() {
 
                     <div className="col-lg-4 col-md-6">
                         <div className="d-flex align-items-center gap-2 mb-3">
-                            <img src="/images/logosena.png" alt="Logo SENA" style={{ height: '38px', width: 'auto', objectFit: 'contain' }} />
+                            <img src="/images/logoSena.png" alt="logoSena" style={{ height: '60px', width: 'auto', objectFit: 'contain' }} />
                             <span className="fw-bold fs-5 text-dark">Admin-SENA</span>
                         </div>
                         <p className="small text-muted mb-3" style={{ lineHeight: 1.6 }}>

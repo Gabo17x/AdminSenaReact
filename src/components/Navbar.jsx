@@ -8,15 +8,16 @@ function Navbar() {
 
                 <div className="d-flex align-items-center gap-4 gap-lg-5">
                     <Link to="/" className="d-flex align-items-center gap-2">
-                        {/* En JSX los estilos van como objeto: style={{ propiedad: valor }} */}
-                        <img src="/images/logosena.png" alt="Logo SENA" style={{ height: '34px', width: 'auto', objectFit: 'contain' }} />
+
+                        {/* En JSX los estilos van como objeto style  propiedad valor */}
+                        <img src="/images/logoSena.png" alt="logoSena" style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
                         <span className="fs-4 fw-black" style={{ fontWeight: 900, color: '#00324D' }}>
                             Admin<span style={{ color: '#39A900' }}>SENA</span>
                         </span>
                     </Link>
 
                     <nav className="d-none d-md-flex align-items-center gap-4 text-sm fw-semibold">
-                        <Link to="/" style={{ color: '#00324D', fontWeight: 700 }}>Inicio</Link>
+                        
                         <Link to="/quienes-somos" className="text-secondary hover-sena">¿Quiénes Somos?</Link>
 
                         <div className="dropdown">
@@ -35,7 +36,7 @@ function Navbar() {
                                 Operación Académica
                             </a>
                             <ul className="dropdown-menu border-0 shadow-lg rounded-4 p-2">
-                                <li><Link className="dropdown-item rounded-3 py-2 small fw-semibold" to="/courses">Cursos</Link></li>
+                                <li><Link className="dropdown-item rounded-3 py-2 small fw-semibold" to="/courses">Programas</Link></li>
                                 <li><Link className="dropdown-item rounded-3 py-2 small fw-semibold" to="/teachers">Instructores</Link></li>
                                 <li><Link className="dropdown-item rounded-3 py-2 small fw-semibold" to="/apprentices">Aprendices</Link></li>
                             </ul>
@@ -68,4 +69,4 @@ function Navbar() {
     );
 }
 
-export default Navbar; // Se exporta para poder importarlo en Layouts.jsx
+export default Navbar; // Se exporta para poder importarlo en Layouts.jsx ...

@@ -1,66 +1,163 @@
+import { useState } from 'react';
+
+// Datos de las diapositivas del carrusel y agregar imagenes 
+const slides = [
+  {
+    badge: 'ADSO',
+    title: 'Gestión Eficiente del Centro Formativo',
+    description: 'La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.',
+    buttonText: 'Explorar Módulos',
+    buttonLink: '#pilares',
+    image: '/images/imagenes-one.jpeg',
+  },
+  {
+    badge: 'ADSO',
+    title: 'Gestión Eficiente del Centro Formativo',
+    description: 'La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.',
+    buttonText: 'Explorar Módulos',
+    buttonLink: '#pilares',
+    image: '/images/imagenes dos.jpeg',
+  },
+  {
+    badge: 'ADSO',
+    title: 'Gestión Eficiente del Centro Formativo',
+    description: 'La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.',
+    buttonText: 'Explorar Módulos',
+    buttonLink: '#pilares',
+    image: '/images/imagenes tres.JPG',
+  },
+  {
+    badge: 'ADSO',
+    title: 'Gestión Eficiente del Centro Formativo',
+    description: 'La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.',
+    buttonText: 'Explorar Módulos',
+    buttonLink: '#pilares',
+    image: '/images/imagenes cinco.jpeg',
+  },
+
+   {
+    badge: 'ADSO',
+    title: 'Gestión Eficiente del Centro Formativo',
+    description: 'La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.',
+    buttonText: 'Explorar Módulos',
+    buttonLink: '#pilares',
+    image: '/images/imagenes seis.webp',
+  }
+
+];
+
 function Home() {
-    return (
-        <div className="container-xl px-4" style={{ maxWidth: '1200px' }}>
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-            {/* Hero Banner */}
-            <div className="position-relative px-2 px-md-5 mb-5">
-                <section className="hero-card p-4 p-md-5">
-                    <div className="row align-items-center g-4">
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
 
-                        <div className="col-lg-6">
-                            <span
-                                className="badge rounded-pill px-3 py-1 mb-3"
-                                style={{ background: '#ecfdf5', color: '#39A900', border: '1px solid #a7f3d0', fontSize: '0.75rem', fontWeight: 700 }}
-                            >
-                                ADSO
-                            </span>
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
 
-                            <h1 className="mb-3" style={{ fontWeight: 900, color: '#00324D', fontSize: 'calc(1.6rem + 1.2vw)', lineHeight: 1.15 }}>
-                                Administra Ambientes y Equipos Fácilmente
-                            </h1>
+  const current = slides[currentIndex];
 
-                            <p className="text-secondary mb-4" style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>
-                                La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.
-                            </p>
+  return (
+    <div className="container-xl px-4" style={{ maxWidth: '1200px' }}>
 
-                            <a href="#pilares" className="btn-sena-pill" style={{ fontSize: '0.82rem', padding: '0.65rem 1.6rem' }}>
-                                Explorar Módulos
-                            </a>
-                        </div>
+      {/* Hero Banner con Carrusel Integrado */}
+      <div className="position-relative px-2 px-md-5 mb-5">
+        
+        {/* Botón Izquierda, darle clic para cambiar img  */}
+        <button
+          onClick={prevSlide}
+          className="btn btn-light rounded-circle position-absolute top-50 start-0 translate-middle-y z-3 shadow-sm d-flex align-items-center justify-content-center"
+          style={{ width: '42px', height: '42px', border: '1px solid #e2e8f0' }}
+          type="button"
+        >
+          ❮
+        </button>
 
-                        <div className="col-lg-6">
-                            <div
-                                className="rounded-4 overflow-hidden shadow-sm d-flex align-items-center justify-content-center"
-                                style={{ height: '320px', background: '#e2e8f0' }}
-                            >
-                                <span className="text-secondary small">Imagen / Carrusel aquí</span>
-                            </div>
-                        </div>
+        <section className="hero-card p-4 p-md-5 bg-white rounded-5 shadow-sm border-0">
+          <div className="row align-items-center g-4">
 
-                    </div>
-                </section>
+            {/* Contenido Dinámico  */}
+            <div className="col-lg-6">
+              <span
+                className="badge rounded-pill px-3 py-1 mb-3"
+                style={{ background: '#ecfdf5', color: '#39A900', border: '1px solid #a7f3d0', fontSize: '0.75rem', fontWeight: 700 }}
+              >
+                {current.badge}
+              </span>
+
+              <h1 className="mb-3" style={{ fontWeight: 900, color: '#00324D', fontSize: 'calc(1.6rem + 1.2vw)', lineHeight: 1.15 }}>
+                {current.title}
+              </h1>
+
+              <p className="text-secondary mb-4" style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>
+                {current.description}
+              </p>
+
+              <a href={current.buttonLink} className="btn-sena-pill" style={{ fontSize: '0.82rem', padding: '0.65rem 1.6rem' }}>
+                {current.buttonText}
+              </a>
             </div>
 
-            {/* ¿Qué es AdminSENA? */}
-            <section className="row align-items-center g-5 my-5 mx-auto" style={{ maxWidth: '980px' }}>
-                <div className="col-lg-6">
-                    <h2 className="mb-3" style={{ fontWeight: 900, color: '#00324D', fontSize: '1.8rem' }}>
-                        ¿Qué es AdminSENA?
-                    </h2>
-                    <p className="text-secondary mb-4" style={{ fontSize: '0.86rem', lineHeight: 1.6 }}>
-                        Es una solución interactiva desarrollada para optimizar los procesos de gestión en el área académica y tecnológica. Permitimos a los coordinadores e instructores realizar un control riguroso de las herramientas de cómputo y el agendamiento físico del centro formativo.
-                    </p>
-                </div>
-                <div className="col-lg-6">
-                    <div
-                        className="rounded-4 shadow-sm w-100"
-                        style={{ height: '250px', background: '#e2e8f0' }}
-                    ></div>
-                </div>
-            </section>
+            {/* Imagen Dinámica */}
+            <div className="col-lg-6">
+              <img
+                src={current.image}
+                alt={current.title}
+                className="rounded-4 shadow-sm w-100 object-fit-cover"
+                style={{ height: '280px' }}
+              />
+            </div>
 
+          </div>
+
+          {/* Barra de Consulta Inferior */}
+          <div className="border-top mt-4 pt-3 d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div>
+              <span className="text-uppercase text-muted fw-bold d-block" style={{ fontSize: '10px' }}>
+                ¿Qué buscas?
+              </span>
+              <span className="fw-semibold text-dark small">Ambientes, Fichas, Instructores...</span>
+            </div>
+            <div>
+              <span className="text-uppercase text-muted fw-bold d-block" style={{ fontSize: '11px' }}>
+                Estado Actual
+              </span>
+              <span className="fw-semibold text-dark small">Todos los módulos</span>
+            </div>
+            <a href="#consultar" className="btn-sena-pill" style={{ fontSize: '0.8rem', padding: '0.4rem 1.2rem' }}>
+              Consultar
+            </a>
+          </div>
+        </section>
+
+        {/* Botón Derecha */}
+        <button
+          onClick={nextSlide}
+          className="btn btn-light rounded-circle position-absolute top-50 end-0 translate-middle-y z-3 shadow-sm d-flex align-items-center justify-content-center"
+          style={{ width: '42px', height: '42px', border: '1px solid #e2e8f0' }}
+          type="button"
+        >
+          ❯
+        </button>
+      </div>
+
+      {/* ¿Qué es AdminSENA? */}
+      <section id="pilares" className="row align-items-center g-5 my-5 mx-auto" style={{ maxWidth: '980px' }}>
+        <div className="col-lg-6">
+          <h2 className="mb-3" style={{ fontWeight: 900, color: '#00324D', fontSize: '1.8rem' }}>
+            ¿Qué es AdminSENA?
+          </h2>
+          <p className="text-secondary mb-4" style={{ fontSize: '0.86rem', lineHeight: 1.6 }}>
+            Es una solución interactiva desarrollada para optimizar los procesos de gestión en el área académica y tecnológica. Permitimos a los coordinadores e instructores realizar un control riguroso de las herramientas de cómputo y el agendamiento físico del centro formativo.
+          </p>
         </div>
-    );
+        <img src="/images/imagenes siete.jpg" alt="" />
+      </section>
+
+    </div>
+  );
 }
 
 export default Home;
