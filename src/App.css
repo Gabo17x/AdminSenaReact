@@ -182,3 +182,84 @@
     border-right-color: var(--border);
   }
 }
+
+:root {
+    --sena-green: #39A900;
+    --sena-green-hover: #2f8b00;
+    --sena-blue: #00324D;
+}
+
+* {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #ffffff !important;
+    color: #334155;
+    margin: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.btn-sena-pill {
+    background-color: var(--sena-green);
+    color: #ffffff !important;
+    border-radius: 9999px;
+    font-weight: 700;
+    padding: 0.55rem 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+    border: none;
+}
+.btn-sena-pill:hover {
+    background-color: var(--sena-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(57, 169, 0, 0.3);
+}
+
+.hero-card {
+    background: #ffffff;
+    border: 1.5px solid #d1fae5;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px -15px rgba(0, 50, 77, 0.07);
+}
+
+.pilar-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px -2px rgba(0,0,0,0.04);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.pilar-card:hover {
+    transform: translateY(-5px);
+    border-color: #a7f3d0;
+    box-shadow: 0 16px 32px -10px rgba(57, 169, 0, 0.18);
+}
+
+.form-sena-card {
+    background: #ffffff;
+    border: 1.5px solid #d1fae5;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px -15px rgba(0, 50, 77, 0.07);
+}
+
+.btn-sena-outline {
+    border-radius: 9999px;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+}
+
+.table-sena thead th {
+    background-color: var(--sena-blue);
+    color: #ffffff;
+    border: none;
+}
