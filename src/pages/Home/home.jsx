@@ -32,7 +32,7 @@ const slides = [
     description: 'La plataforma centralizada para la asignación y seguimiento de hardware, control de ambientes formativos y fichas académicas del centro de formación.',
     buttonText: 'Explorar Módulos',
     buttonLink: '#pilares',
-    image: '/images/imagenes cinco.jpeg',
+    image: '/images/imagenes cinco.jpg',
   },
 
    {
@@ -64,7 +64,7 @@ function Home() {
 
       {/* Hero Banner con Carrusel Integrado */}
       <div className="position-relative px-2 px-md-5 mb-5">
-        
+
         {/* Botón Izquierda, darle clic para cambiar img  */}
         <button
           onClick={prevSlide}
@@ -114,17 +114,19 @@ function Home() {
 
           {/* Barra de Consulta Inferior */}
           <div className="border-top mt-4 pt-3 d-flex flex-wrap align-items-center justify-content-between gap-3">
-            <div>
-              <span className="text-uppercase text-muted fw-bold d-block" style={{ fontSize: '10px' }}>
-                ¿Qué buscas?
-              </span>
-              <span className="fw-semibold text-dark small">Ambientes, Fichas, Instructores...</span>
-            </div>
-            <div>
-              <span className="text-uppercase text-muted fw-bold d-block" style={{ fontSize: '11px' }}>
-                Estado Actual
-              </span>
-              <span className="fw-semibold text-dark small">Todos los módulos</span>
+            <div className="d-flex align-items-center gap-4">
+              <div style={{ textAlign: "left" }}>
+                <span className="text-uppercase text-muted fw-bold d-block" style={{ fontSize: '10px' }}>
+                  ¿Qué buscas?
+                </span>
+                <span className="fw-semibold text-dark small">Ambientes, Fichas, Instructores...</span>
+              </div>
+              <div style={{ textAlign: "left", borderLeft: "1px solid #e2e8f0", paddingLeft: "1.25rem" }}>
+                <span className="text-uppercase text-muted fw-bold d-block" style={{ fontSize: '11px' }}>
+                  Estado Actual
+                </span>
+                <span className="fw-semibold text-dark small">Todos los módulos</span>
+              </div>
             </div>
             <a href="#consultar" className="btn-sena-pill" style={{ fontSize: '0.8rem', padding: '0.4rem 1.2rem' }}>
               Consultar
@@ -143,17 +145,49 @@ function Home() {
         </button>
       </div>
 
-      {/* ¿Qué es AdminSENA? */}
-      <section id="pilares" className="row align-items-center g-5 my-5 mx-auto" style={{ maxWidth: '980px' }}>
-        <div className="col-lg-6">
-          <h2 className="mb-3" style={{ fontWeight: 900, color: '#00324D', fontSize: '1.8rem' }}>
+      {/* ¿Qué es AdminSENA? ------------------*/}
+      <section
+        className="my-5 mx-auto"
+        style={{
+          maxWidth: 980,
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "2.5rem",
+        }}
+      >
+        {/* Columna de texto */}
+        <div style={{ flex: "1 1 380px", minWidth: 280, textAlign: "left" }}>
+          <h2 className="mb-3" style={{ fontWeight: 900, color: "#00324D", fontSize: "1.8rem" }}>
             ¿Qué es AdminSENA?
           </h2>
-          <p className="text-secondary mb-4" style={{ fontSize: '0.86rem', lineHeight: 1.6 }}>
+          <p className="text-secondary mb-4" style={{ fontSize: "0.86rem", lineHeight: 1.6 }}>
             Es una solución interactiva desarrollada para optimizar los procesos de gestión en el área académica y tecnológica. Permitimos a los coordinadores e instructores realizar un control riguroso de las herramientas de cómputo y el agendamiento físico del centro formativo.
           </p>
+          <div className="d-flex align-items-center gap-3">
+            <a href="/quienes-somos" className="btn-sena-pill" style={{ fontSize: "0.8rem" }}>
+              Conocer más
+            </a>
+            <a href="#" className="text-secondary fw-bold ms-2 text-decoration-underline" style={{ fontSize: "0.8rem" }}>
+              Ver manual de uso
+            </a>
+          </div>
         </div>
-        <img src="/images/imagenes siete.jpg" alt="" />
+
+        {/* Columna de imagen */}
+        <div style={{ flex: "1 1 380px", minWidth: 280 }}>
+          <img
+            src="/images/imagenes siete.jpg"
+            alt="SENA"
+            className="rounded-4 shadow-sm"
+            style={{
+              width: "100%",
+              height: 250,
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+        </div>
       </section>
 
     </div>

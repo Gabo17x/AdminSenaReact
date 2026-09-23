@@ -263,3 +263,24 @@ a {
     color: #ffffff;
     border: none;
 }
+
+/* Quitar bordes o limitaciones de ancho no deseadas */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100% !important;
+    overflow-x: hidden;
+    border: none !important;
+}
+
+/* Asegurar que las etiquetas de enlace no tengan subrayado por defecto */
+a {
+    text-decoration: none;
+}
+
+/* Efecto hover personalizado para las opciones de menú */
+.hover-sena:hover {
+    color: #39A900 !important;
+    transition: color 0.2s ease-in-out;
+}
